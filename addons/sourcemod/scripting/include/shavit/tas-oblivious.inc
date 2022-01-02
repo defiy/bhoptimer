@@ -255,16 +255,8 @@ stock Action ObliviousOnPlayerRunCmd(int client, int& buttons, int& impulse, flo
 	if (GetVectorLength(new_vel) < 99999.0 && GetVectorLength(new_vel) > 0.0)
 	{
 		SetEntPropVector(client, Prop_Data, "m_vecVelocity", new_vel);
-
-		float _new_vel[3];
-		for (int i = 0; i < 3; i++)
-			_new_vel[i] = new_vel[i] + base_vel[i];
-
-		SetEntPropVector(client, Prop_Data, "m_vecAbsVelocity", _new_vel); // m_vecBaseVelocity+m_vecVelocity
 		SetEntPropVector(client, Prop_Data, "m_vecBaseVelocity", base_vel);
 	}
-
-	SetEntPropVector(client, Prop_Data, "m_vecBaseVelocity", base_vel);
 
 	if (set_back)
 		vel[1] = 0.0;
